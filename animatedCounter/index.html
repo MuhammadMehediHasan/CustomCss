@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animating Counters</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="title">Projects Done</div>
+        <div class="counter">178</div>
+        <button onclick="counterRun()">
+        <div class="btn_title">Restart</div>
+        <div class="dummy_title">Click Me!</div>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const counter = document.querySelector(".counter");
+      const button = document.querySelector("button");
+      const tips = document.querySelector(".dummy_title")
+      const number = 178;
+      let isRunning = false;
+
+      function counterRun() {
+        button.classList.add("running");
+
+        if (!isRunning) {
+          isRunning = true;
+          tips.textContent = "Running ..."
+          let timeInterval = setInterval(update, 10);
+
+          let currentNumber = 0;
+
+          function update() {
+            if (currentNumber > number) {
+              clearInterval(timeInterval);
+              button.classList.remove("running");
+              tips.textContent = "Click Me!"
+              isRunning = false;
+            } else {
+              counter.textContent = currentNumber;
+              currentNumber++;
+            }
+          }
+        }
+      }
+
+      counterRun();
+    </script>
+  </body>
+</html>

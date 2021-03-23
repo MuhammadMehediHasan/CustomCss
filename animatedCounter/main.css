@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #212121;
+}
+
+.title, .counter {
+    display: block;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: lighter;
+    padding-bottom: 2rem;
+    color: #fafafa;
+    cursor: context-menu;
+}
+
+.counter {
+    font-size: 2rem;
+    font-weight: bolder;
+    color: rgb(183, 199, 250);
+    text-shadow: 0 0 10px  rgba(255, 255, 255, .4);
+    cursor: help;
+    padding-bottom: 2rem;
+    transition: .3s;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #333333;
+    padding: 3rem;
+    border-radius: .4rem;
+    box-shadow: 0 0 10px rgba(214, 214, 214, 0.1);
+}
+
+::selection {
+    background-color: rgb(72, 218, 255);
+}
+
+button {
+    border: 0;
+    background-color: rgb(76, 235, 76);
+    padding: .4rem 1rem;
+    font-size: 1.3rem;
+    box-shadow: 0 0 10px rgba(76, 235, 76, .6);
+    cursor: pointer;
+    transition: .4s;
+    outline: none;
+}
+
+.running {
+    background-color: rgb(183, 199, 250);
+    box-shadow: 0 0 10px rgba(183, 199, 250, .6);
+}
+
+button:hover   {
+    background-color: rgb(183, 199, 250);
+    box-shadow: 0 0 10px rgba(183, 199, 250, .6);
+    transform: translate(0, -5px);
+}
+
+button:active {
+    background-color: rgb(76, 235, 76);
+    box-shadow: 0 0 10px rgba(76, 235, 76, .6);
+    transform: translate(0, 0);
+}
+
+.dummy_title {
+    position: absolute;
+    transform: translate(0, 50px);
+    background-color: #fafafa;
+    padding: .3rem;
+    border-radius: .4rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: .35s;
+}
+.dummy_title::before {
+    content: '';
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    top: -5px;
+    left: 5px;
+    border-radius: .2rem;
+    transform: rotate(45deg);
+    background-color: #fafafa;
+    
+}
+
+
+button:hover .dummy_title {
+    transform: translate(0, 25px);
+    opacity: 1;
+    visibility: visible;
+}
